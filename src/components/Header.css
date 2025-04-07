@@ -1,0 +1,58 @@
+/* src/components/Header.css */
+.Header {
+  /* Общий контейнер для Header, чтобы избежать конфликтов */
+  background-color: #00695c; /* Зеленый цвет шапки */
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative; /* Добавляем position: relative для позиционирования popup */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%; /* Ширина контента */
+  padding: 0 20px;
+  max-width: 1200px; /* Максимальная ширина */
+  margin: 0 auto; /* Центрирование */
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+}
+
+.header-links div {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.phone-number {
+  font-weight: normal; /* Обычный шрифт для номера телефона */
+}
+
+.about-us {
+  position: relative; /* Делаем "О нас" контейнером для абсолютного позиционирования */
+}
+
+.about-us-popup {
+  position: absolute;
+  top: 100%; /* Показываем под элементом "О нас" */
+  left: 0;
+  background-color: white;
+  color: black; /* Цвет текста в popup */
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 10;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 200px; /* Задаем ширину popup */
+}

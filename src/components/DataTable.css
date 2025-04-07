@@ -1,0 +1,54 @@
+/* src/components/DataTable.css */
+.data-table-container {
+  overflow-x: auto; /* Для горизонтальной прокрутки, если таблица не помещается */
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #c8e6c9; /* Светло-зеленый цвет фона */
+  color: black; /* Черный цвет текста */
+  font-weight: bold;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.reading-input {
+  width: 80px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /*  Чтобы padding не увеличивал ширину */
+}
+
+.calculate-button {
+  padding: 5px 10px;
+  background-color: #4CAF50; /* Зеленый цвет кнопки */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calculate-button:disabled {
+  background-color: #ccc; /* Серый цвет для неактивной кнопки */
+  cursor: not-allowed;
+}
+
+.calculate-button.active {
+  background-color: #388E3C; /* Более темный зеленый при активности */
+}

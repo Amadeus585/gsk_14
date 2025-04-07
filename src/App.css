@@ -1,0 +1,90 @@
+body {
+  background-color: #004d40; /* Темно-зеленый фон */
+  font-family: sans-serif;
+  color: white; /* Белый текст */
+  margin: 0;
+}
+
+
+
+.App {
+  text-align: center;
+  min-height: 100vh; /* Занимает всю высоту экрана */
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+}
+
+.header-links div {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.phone-number {
+  font-weight: normal; /* Обычный шрифт для номера телефона */
+}
+
+.search-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.search-container h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  padding: 12px 20px;
+  border: 2px solid #00695c;
+  border-radius: 5px;
+  font-size: 1em;
+  margin-right: 10px;
+  width: 300px;
+  background-color: #e0f2f1;
+  color: #004d40;
+}
+
+.search-container button {
+  padding: 12px 30px;
+  background-color: #00695c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  max-width: 1200px;
+  background-color: #e0f2f1;
+  color: #004d40;
+}
+
+th,
+td {
+  border: 1px solid #00695c;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #00695c;
+  color: white;
+  font-weight: bold;
+}
+
+/* Добавьте стили для всплывающих окон здесь (позже) */
