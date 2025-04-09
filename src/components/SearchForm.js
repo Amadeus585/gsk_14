@@ -8,7 +8,7 @@ function SearchForm({ setTableData, allTableData }) {
   const handleSearchClick = () => {
     // Фильтруем allTableData по ФИО (не регистрозависимо)
     const filteredData = allTableData.filter(item =>
-      item.ФИО.toLowerCase().includes(fio.toLowerCase())
+      item.ФИО.toLowerCase() === fio.toLowerCase()
     );
 
     //  Обновляем состояние tableData с помощью функции, переданной из App.js
