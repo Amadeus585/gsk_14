@@ -1,4 +1,3 @@
-// src/components/DataTable.js
 import React, { useState, useEffect } from 'react';
 import './DataTable.css';
 import { updateGoogleSheetData } from '../utils/googleSheets'; // Импортируем функцию
@@ -31,9 +30,15 @@ function DataTable({ tableData, setTableData, allTableData }) { // Добавл�
       return;
     }
 
-    // Рассчитываем новые значения (пример)
+    // Рассчитываем новые значения
     const previousReadings = parseInt(rowData['Прошлые показания счётчика'], 10) || 0;
     const currentReadings = parseInt(newReading, 10) || 0;
+
+    // **ДОБАВЛЕННАЯ ПРОВЕРКА**
+    if (currentReadings < previousReadings) {
+      alert("Измените текущие показания. Они не могут быть меньше предыдущих.");
+      return; // Прерываем выполнение функции, если проверка не прошла
+    }
 
     // Получаем тариф из столбца G
     const tariff = parseFloat(rowData['Тариф']) || 6.3; // Берем тариф из таблицы, если есть, иначе 6.3
@@ -41,11 +46,10 @@ function DataTable({ tableData, setTableData, allTableData }) { // Добавл�
     const consumption = currentReadings - previousReadings;
     const cost = consumption * tariff;
 
-    //  Определяем range (диапазон ячеек для обновления)
-    const rowIndex = allTableData.findIndex((row) => row.Гараж === garage) + 2; //  +2, потому что первая строка - заголовки
-
-    const readingColumn = 'D'; //  Показания на день оплаты
-    const costColumn = 'F'; //  К оплате
+    // Определяем range (диапазон ячеек для обновления)
+    const rowIndex = allTableData.findIndex((row) => row.Гараж === garage) + 2; // +2, потому что первая строка - заголовки
+    const readingColumn = 'D'; // Показания на день оплаты
+    const costColumn = 'F'; // К оплате
     const pastReadingsColumn = 'C'; // Прошлые показания
 
     // Формируем range для обновления столбца "Показания на день оплаты"
@@ -58,7 +62,7 @@ function DataTable({ tableData, setTableData, allTableData }) { // Добавл�
     try {
       // Вызываем функцию для обновления Google Sheets для каждого столбца
       console.log('range:', readingRange, 'values:', [[newReading]]);
-      await updateGoogleSheetData(readingRange, [[newReading]]); //  "Показания на день оплаты"
+      await updateGoogleSheetData(readingRange, [[newReading]]); // "Показания на день оплаты"
       console.log('range:', costRange, 'values:', [[cost]]);
       await updateGoogleSheetData(costRange, [[cost]]); // "К оплате"
       console.log('range:', pastReadingsRange, 'values:', [[String(currentReadings)]]);
@@ -76,11 +80,11 @@ function DataTable({ tableData, setTableData, allTableData }) { // Добавл�
         }
         return row;
       });
-
       setTableData(updatedTableData); // Обновляем tableData
 
       // Очищаем поле ввода
       setReadings({ ...readings, [garage]: '' }); // Очищаем поле ввода
+
     } catch (error) {
       console.error('Error updating data:', error);
       // Обработка ошибок
