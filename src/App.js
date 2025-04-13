@@ -58,7 +58,15 @@ function App() {
     <div className="App">
       <Header />
       {!isAuthorized && (
-        <button onClick={handleAuthorizeClick}>Авторизоваться в Google Sheets</button>
+        <>
+          <button onClick={handleAuthorizeClick}>Авторизоваться в Google Sheets</button>
+          <a
+            href="https://docs.google.com/document/export?format=docx&id=1pduIT9LgbHx6cPMOk7S6PzbWFkvueSfan3qolFy9tzU"
+            download="Инструкция.docx"
+          >
+            <button>Скачать инструкцию</button>
+          </a>
+        </>
       )}
       {error && <div className="error-message">{error}</div>}
       {isAuthorized && (
