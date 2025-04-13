@@ -63,18 +63,17 @@ function DataTable({ tableData, setTableData, allTableData }) { // Добавл�
       // Вызываем функцию для обновления Google Sheets для каждого столбца
       console.log('range:', readingRange, 'values:', [[newReading]]);
       await updateGoogleSheetData(readingRange, [[newReading]]); // "Показания на день оплаты"
-      console.log('range:', costRange, 'values:', [[cost]]);
-      await updateGoogleSheetData(costRange, [[cost]]); // "К оплате"
+      console.log('range:', costRange, 'values:', [[cost.toFixed(2).replace('.', ',')]]);
+      await updateGoogleSheetData(costRange, [[cost.toFixed(2).replace('.', ',')]]); // "К оплате"
       console.log('range:', pastReadingsRange, 'values:', [[String(currentReadings)]]);
       await updateGoogleSheetData(pastReadingsRange, [[String(currentReadings)]]); // "Прошлые показания"
 
-      // Обновляем состояние tableData в React
       const updatedTableData = tableData.map(row => {
         if (row.Гараж === garage) {
           return {
             ...row,
             'Показания на день оплаты': newReading,
-            'К оплате': cost,
+            'К оплате': cost.toFixed(2).replace('.', ','),
             'Прошлые показания счётчика': currentReadings,
           };
         }
@@ -82,12 +81,10 @@ function DataTable({ tableData, setTableData, allTableData }) { // Добавл�
       });
       setTableData(updatedTableData); // Обновляем tableData
 
-      // Очищаем поле ввода
       setReadings({ ...readings, [garage]: '' }); // Очищаем поле ввода
 
     } catch (error) {
       console.error('Error updating data:', error);
-      // Обработка ошибок
     }
   };
 
