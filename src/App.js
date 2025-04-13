@@ -67,6 +67,13 @@ function App() {
           >
             <button>Скачать устав</button>
           </a>
+          <a
+            href="https://docs.google.com/document/export?format=docx&id=1Up-fHF7jv0NWJwCFnGyVNbftsL7ohAfHThpa0IlLFhI"
+            download="Протокол собраний.docx"
+            className="download-button-link protocol-button" //Добавляем класс
+          >
+            <button>Скачать протокол собраний</button>
+          </a>
         </>
       )}
       {error && <div className="error-message">{error}</div>}
