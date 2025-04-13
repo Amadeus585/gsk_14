@@ -5,13 +5,12 @@ body {
   margin: 0;
 }
 
-
-
 .App {
   text-align: center;
   min-height: 100vh; /* Занимает всю высоту экрана */
   display: flex;
   flex-direction: column;
+  position: relative; /* Добавляем, чтобы .download-button-link позиционировался относительно .App */
 }
 
 .logo {
@@ -85,6 +84,28 @@ th {
   background-color: #00695c;
   color: white;
   font-weight: bold;
+}
+
+/* Стили для кнопки "Скачать устав" */
+.download-button-link {
+  position: absolute;
+  top: 20px; /* Регулируй отступ сверху */
+  left: 20px; /* Регулируй отступ слева */
+  text-decoration: none;
+  color: white;
+}
+
+.download-button-link button {
+  background-color: #00695c; /* Темно-зеленый фон */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 /* Добавьте стили для всплывающих окон здесь (позже) */
