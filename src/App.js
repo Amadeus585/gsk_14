@@ -57,24 +57,22 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <a
+        href="https://docs.google.com/document/export?format=docx&id=1pduIT9LgbHx6cPMOk7S6PzbWFkvueSfan3qolFy9tzU"
+        download="Устав.docx"
+        className="download-button-link" //Добавляем класс
+      >
+        <button>Скачать устав</button>
+      </a>
+      <a
+        href="https://docs.google.com/document/export?format=docx&id=1Up-fHF7jv0NWJwCFnGyVNbftsL7ohAfHThpa0IlLFhI"
+        download="Протокол собраний.docx"
+        className="download-button-link protocol-button" //Добавляем класс
+      >
+        <button>Скачать протокол собраний</button>
+      </a>
       {!isAuthorized && (
-        <>
-          <button onClick={handleAuthorizeClick}>Авторизоваться в Google Sheets</button>
-          <a
-            href="https://docs.google.com/document/export?format=docx&id=1pduIT9LgbHx6cPMOk7S6PzbWFkvueSfan3qolFy9tzU"
-            download="Устав.docx"
-            className="download-button-link" //Добавляем класс
-          >
-            <button>Скачать устав</button>
-          </a>
-          <a
-            href="https://docs.google.com/document/export?format=docx&id=1Up-fHF7jv0NWJwCFnGyVNbftsL7ohAfHThpa0IlLFhI"
-            download="Протокол собраний.docx"
-            className="download-button-link protocol-button" //Добавляем класс
-          >
-            <button>Скачать протокол собраний</button>
-          </a>
-        </>
+        <button onClick={handleAuthorizeClick}>Авторизоваться в Google Sheets</button>
       )}
       {error && <div className="error-message">{error}</div>}
       {isAuthorized && (
