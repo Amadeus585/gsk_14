@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './App.css'; //Импорт css
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import DataTable from './components/DataTable';
@@ -62,9 +62,10 @@ function App() {
           <button onClick={handleAuthorizeClick}>Авторизоваться в Google Sheets</button>
           <a
             href="https://docs.google.com/document/export?format=docx&id=1pduIT9LgbHx6cPMOk7S6PzbWFkvueSfan3qolFy9tzU"
-            download="Инструкция.docx"
+            download="Устав.docx"
+            className="download-button-link" //Добавляем класс
           >
-            <button>Скачать инструкцию</button>
+            <button>Скачать устав</button>
           </a>
         </>
       )}
